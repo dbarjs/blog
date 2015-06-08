@@ -42,7 +42,7 @@ h4 {
 
 a {
 	text-decoration: none;
-	color: inherit;
+	/*color: inherit;*/
 	-webkit-transition: .3s;
 	-moz-transition: .3s;
 	transition: .3s;
@@ -268,11 +268,6 @@ strong {
 
 /* Container */
 
-/*
-	TODO - Container options (full, wide and blog)
-	TODO - Container with support to Flex
-*/
-
 .container {
 	margin-right: auto;
 	margin-left: auto;
@@ -284,17 +279,7 @@ strong {
 	}
 }
 
-@media (min-width: 60em) {
-	.container {
-		width: 64em;
-	}
-}
-
 @media (min-width: 72em) {
-	.blog {
-		width: 100%;
-	}
-
 	.wide {
 		width: 100%;
 		max-width: 72em;

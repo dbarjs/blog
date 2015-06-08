@@ -3,15 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Novo blog! | barros@noibe </title>
+	<meta name="description" content="Primeiro post do meu blog pessoal"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<script src="../dist/js/villa.js"></script>
 	<link rel="stylesheet" href="../dist/css/villa.css"/>
 	<link rel="stylesheet" href="../css/lingvo.css"/>
 </head>
 <body>
 
-<main class="container" role="main">
+<header>
+	<header>
+		<a href="http://barros.noibe.com/" class="logo"></a>
+		<span class="title">
+			<span class="name">barros</span>
+			<span class="ext">@noibe</span>
+		</span>
+	</header>
+</header>
 
-	<article id="1">
+<main role="main">
+
+	<article class="container blog" id="1">
 
 		<header>
 			<h1>Novo blog!</h1>
@@ -24,9 +36,19 @@
 
 			<p>Nessa nova estrutura de blog, eu idealizei um <em>Framework Web</em> chamada <em>Lingvo</em> - sim, isso é um 'v' - focada, inicialmente, em quem entende o básico de desenvolvimento Web. O objetivo por enquanto é liberdade na publicação de conteúdos tomando controle de tudo o que acontece na publicação do arquivo.</p>
 
-			<p>Estarei usando no inicio do projeto Lingvo uma estrutura bastante "rudimentar" que lembra o a Web de antigamente utilizando pastas para armazenar e publicar o conteúdo. Sim, eu sei que existem vários <em>frameworks</em> ou padrões prontos para isso, mas agora tudo o que eu quero é simplicidade, performance e segurança de que o conteúdo será visualizado por qualquer cliente (browser). No momento eu irei utlizar padrões persistentes na exibição e vou evitar usar qualquer linguagem serverside para fazer o controle de conteúdo. Vou utlizar, no entanto, uma API já pronta para capturar e ter controle dos acessos na página. O esquema de links também será feito manualmente. Vou utilizar apenas o <a href="http://getvilla.org/"><em>Villa Framework</em></a> para me auxiliar no desenvolvimento.</p>
+			<p>Estarei usando no inicio do projeto Lingvo uma estrutura bastante "rudimentar" que lembra o a Web de antigamente utilizando pastas para armazenar e publicar o conteúdo. Sim, eu sei que existem vários <em>frameworks</em> ou padrões prontos para isso, mas agora tudo o que eu quero é simplicidade, performance e segurança de que o conteúdo será visualizado por qualquer cliente (browser). No momento eu irei utlizar padrões persistentes na exibição e vou evitar usar qualquer linguagem serverside para fazer o controle de conteúdo. Vou utlizar, no entanto, uma API já pronta para capturar e ter controle dos acessos na página. O esquema de links também será feito manualmente. Vou utilizar apenas o
+				<a href="http://getvilla.org/"><em>Villa Framework</em></a> para me auxiliar no desenvolvimento.</p>
 
 			<p>Gente, tudo o que preciso agora é de simplicidade! Em breve estarei reunindo o pessoal da comunidade para desenvolver algo incrível! :) </p>
+
+			<section>
+
+				<h3>Marcação</h3>
+
+				<p>A marcação será utilizada no padrão HTML5 sendo composta pelas tags <em>header, main, article, section e footer</em> com base no artigo do
+					<a href="http://blog.teamtreehouse.com/use-html5-sectioning-elements">Tree House</a> sobre elementos de sessão em HTML5.</p>
+
+			</section>
 
 			<section>
 
@@ -54,7 +76,9 @@
 
 					<h4>Tamanho</h4>
 
-					<p>Inicialmente estarei entregando um tamanho de 16px (12pt) com titulos de tamanho aleatório.</p>
+					<p>Inicialmente estarei entregando um tamanho de 16px (12pt) com titulos de tamanho aleatório. Os tamanhos sempre serão baseados no padrão do
+						<a href="http://getvilla.org/typo.pdf"><em>Villa Framework</em></a>, este padrão foi criado para a utilização do métrica tipografica "em".
+					</p>
 
 				</section>
 
@@ -78,9 +102,40 @@
 
 		</section>
 
+		<section>
+
+			<h2>Atualizações</h2>
+
+			<p>Para qualquer alteração de padrão no framework <em>Lingvo</em> eu irei manter tudo nessa página, todo o controle de versionamento estará disponível no repositório do projeto localizado no Github que pode ser acessado
+				<a href="http://github.com/dudusbarros/blog">clicando aqui</a>.</p>
+
+		</section>
+
+		<section>
+
+			<h2>Pra terminar</h2>
+
+			<p>Por enquanto é isso, estarei criando aqui em breve um post sobre a minha aprendizagem com Regex.</p>
+
+		</section>
+
+		<footer>
+			<p>Post iniciado em 08/06/2015</p>
+		</footer>
+
 	</article>
 
 </main>
+
+<footer class="container">
+
+	<div class="mark">
+
+		<span>barros@noibe</span>
+
+	</div>
+
+</footer>
 
 </body>
 </html>
