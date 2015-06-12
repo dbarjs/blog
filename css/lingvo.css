@@ -89,14 +89,11 @@ body > main {
 p {
     margin-bottom: 1em;
     line-height: 1.5;
+    text-align: justify;
 }
 
 h1 {
     margin-bottom: .5em;
-}
-
-h2 {
-    text-transform: uppercase;
 }
 
 h2,
@@ -106,6 +103,7 @@ h5,
 h6 {
     font-size: 1.125em;
     margin-bottom: 1em;
+    line-height: 1.5;
 }
 
 .blog {
@@ -120,18 +118,134 @@ h6 {
 
     p {
         font-size: 1.125em;
+        text-align: left;
     }
 
 }
 
-.text-center {
-    text-align: center;
+/*
+    Article
+*/
+
+article.container {
+    max-width: 48em;
 }
 
-.code {
+article h2 {
+    font-size: 1.5em;
+    text-transform: lowercase;
+}
+
+article h3 {
+    text-transform: uppercase;
+    letter-spacing: .5pt;
+}
+
+article > header {
+    margin-bottom: 2em;
+}
+
+article .code {
     font-family: monospace;
 }
 
-.font-large {
-    font-size: 2em;
+article .font-large {
+    font-size: 1.5em;
+}
+
+article .highlight {
+    color: #212121;
+}
+
+article .text-center {
+    text-align: center;
+}
+
+article > header h1,
+article > header p {
+    color: #424242;
+    text-align: center;
+}
+
+article > header p {
+    font-size: 1.3125em;
+}
+
+article section header p {
+    color: #757575;
+}
+
+article .content {
+    padding: 0 1em;
+}
+
+article .the-end {
+    text-align: center;
+}
+
+article .the-end:after {
+    content: "...";
+}
+
+article .the-end h1 {
+    font-weight: 100;
+}
+
+article .the-end h1,
+article .the-end p {
+    text-align: center;
+}
+
+article table {
+    width: 100%;
+}
+
+article table th,
+article table td {
+    border-style: solid;
+    border-color: #424242;
+    border-width: 0;
+}
+
+article table th {
+    border-bottom-width: 2px;
+}
+
+article table td {
+    text-align: center;
+}
+
+@media screen and (min-width: 48em) {
+
+    article footer,
+    article section {
+        display: flex;
+        justify-content: flex-end;
+        margin: 3em 0;
+        flex-wrap: wrap;
+    }
+
+    article footer header,
+    article section header,
+    article .content {
+
+    }
+
+    article footer header,
+    article section header {
+        max-width: 10em;
+    }
+
+    article section header h2,
+    article section header p {
+        text-align: right;
+    }
+
+    article .content {
+        width: 36em;
+        padding-left: 1em;
+        padding-right: 0;
+        width: 36em;
+    }
+
 }

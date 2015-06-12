@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Aprendendo Regex | barros@noibe </title>
+	<meta name="description" content="Introdução sobre Regex, ou expressões regulares"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<script>
+		var s = 'aaabaaa';
+		var r = /[a-b]/g;
+		var rm = s.match(r);
+
+		console.log(s);
+		console.log(rm);
+	</script>
+	<script src="../dist/js/villa.js"></script>
+	<link rel="stylesheet" href="../dist/css/villa.css"/>
+	<link rel="stylesheet" href="../css/lingvo.css"/>
+</head>
+<body>
+
+<header>
+	<header>
+		<a href="http://barros.noibe.com/" class="logo"></a>
+		<span class="title">
+			<span class="name">barros</span>
+			<span class="ext">@noibe</span>
+		</span>
+	</header>
+</header>
+
+<main role="main">
+
+	<article class="container" id="2">
+
+		<header>
+
+			<h1>Aprendendo: Expressões Regulares</h1>
+
+			<p>Eu nunca conhecia muito sobre Regex, enfim resolvi no final de semana passado me tornar "bom" em expressões regulares. Neste artigo estarei apresentando coisas para aprender o básico de Regex.</p>
+
+		</header>
+
+		<section>
+
+			<header>
+				<h2>O que é Regex?</h2>
+			</header>
+
+			<div class="content">
+
+				<p>Regex, ou Expressão Regular, é uma sequência de caracteres que define um padrão de pesquisa, usado principalmente em combinações de padrão com texto literal (<em>strings</em>) para operações de buscas ou substituições (ou <em>find and replace</em>)[1]. Ou, em uma linguagem mais simples, regex é usado para encontrar ocorrências padrões em um texto.</p>
+				<p>Na pratica, nós desenvolvedores, usamos para substituir algum texto em um arquivo grande ou validar coisas como endereços de e-mail de um formulário (hoje já existe um
+					<a href="https://developer.mozilla.org/pt-BR/docs/HTML/Forms_in_HTML">tipo de <em>input</em> HTML</a> que já faz essa validação). Quando estava na faculdade, lembro que precisei utilizar Regex uma vez para encontrar as tags HTML que continham o código de algum artigo ciêntifico para mostrar uma lista disso para ajudar alguns professores com notificações de novos artigos em algum currículo <em>Lattes</em>, e aprender um pouco de expressões regulares no inicio foi algo um tanto complicado, mas que fazem uma baita diferença na caixa de ferramentas de qualquer desenvolvedor. Vou utilizar nesse texto alguns exemplos de Regex, e você pode testar e modificar eles usando a seguinte ferramenta:</p>
+				<p class="text-center">
+					<a href="http://www.regexr.com/">
+						<span class="font-large">http://www.regexr.com/</span>
+					</a>
+				</p>
+				<p>Nesta incrível ferramenta também estão inclusos referências, tutoriais e qualquer tipo de ajuda que você precise para testar os seus códigos Regex. Em breve iremos também aprender a como executar regex utlizando Javascript!</p>
+
+			</div>
+
+		</section>
+
+		<section>
+
+			<header>
+				<h2>Como funciona?</h2>
+				<p>Nos nossos exemplos, iremos utilzar a seguinte string:</p>
+				<p><span class="code">var string = "<strong>abcABCxyz123</strong>"</span></p>
+			</header>
+
+			<div class="content">
+
+				<p>Básicamente regex é uma string com uma espécie de formula matemática para encontrar combinações (<em>matches</em>) em textos. A estrutura básica de uma expressão regular é a seguinte:</p>
+				<p class="text-center">
+					<span class="code font-large">
+						<strong>//g</strong>
+					</span>
+				</p>
+				<p>Sim, um <strong>regex é só isso</strong>!</p>
+
+				<h3>O inicio (e o fim)</h3>
+
+				<p>Esta simples barra (<em>slash</em>) que está no começo e antes do "g" do nosso código serve simplesmente para iniciar e fechar a coisa toda, se você quer criar uma busca Regex <strong>basta utilizar uma barra para iniciar e outra pra terminar</strong>, simples não? </p>
+
+				<h3>Flags (Parâmetros)</h3>
+
+				<p>O "g" que aparece logo no fim do código é uma <em>flag</em>, ou parâmetro, que notifica o processador de regex que é uma busca <strong>global</strong>, ou seja, ela vai pesquisar pela combinação em todo o texto. Estas <em>flags</em> mudam a forma como a expressão é interpretada. Existem apenas 3 tipos de flags, são elas "i", "g" e "m". <strong>No fim das contas, a gente sempre acaba utilizando a flag "g" no fim da maioria das expressões que iremos desenvolver</strong>.</p>
+
+				<p>Agora, se utilizarmos este regex em uma pesquisa, o que vai acontecer? Nada, o resultado de busca será nulo já não temos nenhum conjunto de caracteres para busca. Que tal aprendermos a como adicionar um conjunto de caracteres?</p>
+
+			</div>
+
+		</section>
+
+		<section>
+
+			<header>
+				<h2>Adicionando conteúdo</h2>
+				<p>Em Javascript, para executar um regex, utilizamos a função <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/match"><span class="code">.match()</span></a> em uma string</p>
+			</header>
+
+			<div class="content">
+
+				<p>Segue abaixo um exemplo de regex com conteúdo para busca:</p>
+				<p class="text-center">
+					<span class="code font-large">
+						<span class="font-grey-600">/</span><strong>[A-z]</strong><span class="font-grey-600">/</span><strong>g</strong>
+					</span>
+				</p>
+				<p>O que esse regex faz? Ele seleciona, em todo o texto, qualquer letra (de A a Z) independente se ela é maiúscula ou minúscula. Mas como este conjunto de caracteres funciona? Pra entender, vamos conhecer um pouco sobre os tipos de conjunto de caracteres! Mas antes, veja o que o código acima extraiu do nosso exemplo (<span class="code">string</span>):</p>
+				<p class="text-center">
+					<span class="code">
+						<span><strong>abcABCxyz</strong>123</span>
+					</span>
+				</p>
+
+				<h3>O conjunto de caracteres</h3>
+
+				<p>Aqui está a parte que apresentamos quais caracteres que vamos precisar na seleção, no exemplo acima, buscamos qualquer letra entre A e Z. O hífen serve para indicar o 'entre'. Você poderia simplesmente não utilizar este hífen para buscar um caractere especifico. Isso também funciona com números, iremos vamos falar disso mais na frente ;)</p>
+				<p>Experimente testar o código sem os colchetes "[]", vai ver que vai retornar um resultado nulo, isso acontece porque este código pede um conjunto de caracteres e não apenas uma cadeia de palavras especifica, agora, tente retirar os colchetes e digitar qualquer letra ou palavra. Para testar, use algumas combinações aleatórias ou como essas: a, ab, abc.</p>
+				<p>Repare no código que o "A-z" utiliza a letra "A" em maiúsculo e a letra "z" em minúsculo que faz com que ele reconheça qualquer tipo de caixa.</p>
+
+				<h3>Números</h3>
+
+				<p>Para capturarmos conteúdo numérico utilizando regex, basta reaproveitarmos o código anterior e trocar as letras por números, ficando assim:</p>
+				<p class="text-center">
+					<span class="code font-large">
+						<span class="font-grey-600">/</span><strong>[0-9]</strong><span class="font-grey-600">/</span><strong>g</strong>
+					</span>
+				</p>
+				<p>E a saída fica assim:</p>
+				<p class="text-center">
+					<span class="code">
+						<span>abcABCxyz<strong>123</strong></span>
+					</span>
+				</p>
+
+			</div>
+
+		</section>
+
+		<section>
+
+			<header>
+				<h2>Classes de caractere</h2>
+				<p>Todas as referencias citadas aqui podem ser testadas no <a href="http://www.regexr.com/">regexr.com</a></p>
+				<p>Nos nossos exemplos, iremos utilzar a seguinte string:</p>
+				<p><span class="code">var string = "<strong>abcABCèéã123</strong>"</span></p>
+			</header>
+
+			<div class="content">
+
+				<h3>O Ponto.</h3>
+				<p>O ponto ".", ou <em>dot</em>, faz a seleção de um caractere. Sim, um caractere, seja qualquer que seja. Se testarmos um regex contendo apenas um ponto, será selecionado toda a frase:</p>
+				<p class="text-center">
+					<span class="code">/<strong>.</strong>/g</span>
+				</p>
+				<p>Isso resultaria em:</p>
+				<p class="text-center"><span class="code"><strong>abcABCèéã123</strong></span></p>
+
+				<h3>Obtendo palavras</h3>
+				<p>Nos exemplo acima, capturamos todas as letras e todos os números da string, mas existe uma versão equivalente do longo <span class="code">[A-z]</span> ou <span class="code">[0-9]</span> que é o <span class="code"><strong>\w</strong></span> (<em>word</em>). Este parâmetro consegue obter qualquer letra do alfabeto, exceto letras que utilizam algum acento como, por exemplo, "é", "á", ou "ã". Segue abaixo um exemplo de utilização</p>
+				<p class="text-center">
+					<span class="code">/<strong>\w</strong>/g</span>
+				</p>
+				<p>O resultado ignora os números e as letras com acento:</p>
+				<p class="text-center">
+					<span class="code">
+						<span><strong>abcABC</strong>èéã123</span>
+					</span>
+				</p>
+
+				<h3>Obtendo digitos</h3>
+				<p>Também como na opção \w, onde são selecionas as letras, é muito utilizado o <span class="code"><strong>\d</strong></span> (<em>digit</em>) para selecionar todos os elementos numéricos de uma frase, a utilização desta classe de caractere é igual ao parametro de palavras(<span class="code">\w</span>):</p>
+				<p class="text-center">
+					<span class="code">/<strong>\d</strong>/g</span>
+				</p>
+				<p>Veja só, ignora todas as letras:</p>
+				<p class="text-center">
+					<span class="code">
+						<span>abcABCèéã<strong>123</strong></span>
+					</span>
+				</p>
+
+				<h3>Negativos <span class="code">\W</span> e <span class="code">\d</span></h3>
+				<p>Já aprendemos como obter palavras e também os digitos, mas também existe como opção uma opção para negativar um digito ou letra, são eles o <span class="code"><strong>\W</strong></span> (<em>not word</em>) e o <span class="code"><strong>\D</strong></span> (<em>not digit</em>) que fazem com que selecione o contrário do que é letra ou do que é digito. Para exemplificar, utilizaremos a tabela:</p>
+				<table>
+					<thead>
+						<tr>
+							<th>regex</th>
+							<th>resultado</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><span class="code">\<strong>/W</strong>\g</span></td>
+						<td><span class="code">abcABC<strong>èéã123</strong></span></td>
+					</tr>
+					<tr>
+						<td><span class="code">\<strong>/D</strong>\g</span></td>
+						<td><span class="code"><strong>abcABCèéã</strong>123</span></td>
+					</tr>
+					</tbody>
+				</table>
+
+			</div>
+
+		</section>
+
+		<section>
+
+			<header>
+				<h2>Âncoras</h2>
+				<p>Se você precisa localizar uma região da frase para fazer a seleção, são indispensáveis!</p>
+				<p>Nos nossos exemplos desta sessão, iremos utilzar a seguinte string:</p>
+				<p><span class="code">var string = "<strong>abc abc abc</strong>"</span></p>
+			</header>
+
+			<div class="content">
+
+				<h3>Pesquisar desde o começo</h3>
+				<p>Muito provávelmente, você vai precisar fazer uma busca de alguma expressão que esteja no inicio (denifitivo) de uma frase, para isso utilizamos o metacaractere <span class="code">"^" no inicio da nossa expressão. Para entender melhor vamos ao exemplo:</span></p>
+				<p class="text-center">
+					<span class="code font-large">/<strong>^</strong>\w/g</span>
+				</p>
+				<p>Como é mostrado abaixo, é selecionado apenas a primeira letra de toda a frase:</p>
+				<p class="text-center">
+					<span class="code"><strong>a</strong>bc abc abc</span>
+				</p>
+
+				<h3>Pesquisar desde o final</h3>
+				<p>Ao contrário do metacaractere anterior (<span class="code">^</span>), também é possível fazer uma seleção a partir do fim de uma frase usando o simbolo <span class="code">$</span>, a utilização também é bem simples:</p>
+				<p class="text-center">
+					<span class="code font-large">/\w<strong>$</strong>/g</span>
+				</p>
+				<p>Dessa vez, é selecionado apenas o útlimo caractere:</p>
+				<p class="text-center">
+					<span class="code">abc abc ab<strong>c</strong></span>
+				</p>
+
+				<h3>Encontrando limites</h3>
+				<p>Em expressões regulares, limites em uma frase são os espaços de um bloco de palavras ou letras, eu prefiro entender que limites são os espaços ou pontuações do texto (ponto ou virgula). Para encontrar estes limites é utilizado o <span class="code">\b</span> (<em>boundary</em>) no inicio ou fim do grupo de caracteres. Seguem os dois exemplos de utilização com seus respectivos resultados:</p>
+				<p>No inicio (após o limite):</p>
+				<p class="text-center">
+					<span class="code">/<strong>\b</strong>\w/g</span>
+					<br/>
+					<span class="code"><strong>a</strong>bc <strong>a</strong>bc <strong>a</strong>bc</span>
+				</p>
+				<p>No final (antes do limite):</p>
+				<p class="text-center">
+					<span class="code">/\w<strong>\b</strong>/g</span>
+					<br/>
+					<span class="code">ab<strong>c</strong> ab<strong>c</strong> ab<strong>c</strong></span>
+				</p>
+
+			</div>
+
+		</section>
+
+		<section>
+
+			<header>
+				<h2>Escape</h2>
+			</header>
+
+			<div class="content">
+				<p>Caracteres de escape são necessários para definir explicitamente alguns tipos de caracteres especiais como tabulação (<em>tab</em>), caractere nulo, pontuação, simbolos e até mesmo as <em>slashes</em>. Para declarar um caractere de escape <strong>é sempre utilizado um <em>backslash</em> (<em>\</em>) antes do metacaractere</strong>. Segue um exemplo de como utilizar um escape, neste exemplo, será selecionado os pontos (<em>dot</em>) da frase:</p>
+				<p class="text-center">
+					<span class="code">/<strong>\.</strong>/g</span>
+				</p>
+				<p>Veja como fica a seleção:</p>
+				<p class="text-center">
+					<span class="code"><strong>.</strong>abc<strong>.</strong></span>
+				</p>
+				<p>Simples não? Poderia explicar como usar todos os escapes aqui, mas como a lista é extensa, vou deixar uma tabelinha! :)</p>
+				<table>
+					<thread>
+						<tr>
+							<th>Caractere</th>
+							<th>Escape</th>
+						</tr>
+					</thread>
+					<tbody class="code">
+						<style scoped="scoped">
+							td {
+								border-bottom: dashed 1px #e0e0e0;
+								color: #000000;
+							}
+						</style>
+						<tr>
+							<td><strong>.</strong></td>
+							<td><strong>\<span>.</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>\</strong></td>
+							<td><strong>\<span>\</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>+</strong></td>
+							<td><strong>\<span>+</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>*</strong></td>
+							<td><strong>\<span>*</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>?</strong></td>
+							<td><strong>\<span>?</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>^</strong></td>
+							<td><strong>\<span>^</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>$</strong></td>
+							<td><strong>\<span>$</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>[</strong></td>
+							<td><strong>\<span>[</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>]</strong></td>
+							<td><strong>\<span>]</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>{</strong></td>
+							<td><strong>\<span>{</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>}</strong></td>
+							<td><strong>\<span>}</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>(</strong></td>
+							<td><strong>\<span>(</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>)</strong></td>
+							<td><strong>\<span>)</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>|</strong></td>
+							<td><strong>\<span>|</span></strong></td>
+						</tr>
+						<tr>
+							<td><strong>/</strong></td>
+							<td><strong>\<span>/</span></strong></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</section>
+
+		<section>
+
+			<header>
+				<h2>Pra ficar fera!</h2>
+			</header>
+
+			<div class="content">
+
+				<p>Logo no inicio da minha estadia no fantástico mundo das expressões regulares eu conheci algumas ferramentas incríveis pra testar o código e também aprender mais sobre regex. Os exemplos de ferramentas são muitos (vide <a href="https://duckduckgo.com/"><em>Google</em></a>), mas enquanto eu estava escrevendo este artigo eu achei um <strong>jogo viciante</strong> que utiliza Regex como base, este jogo se chama <strong>Golf Regex</strong>. A estrutura do Golf Regex é muito simples, apenas um campo de texto onde você digita o código e abaixo duas colunas com várias strings, na qual pra ganhar , tudo o que vc precisa fazer <strong>é escrever um código pra selecionar todas as frases em uma coluna esquerda e ignorar todas as frases da coluna da direita</strong>, simples não? Então vai o link pra começar a jogatina:</p>
+				<p class="text-center">
+					<a href="https://regex.alf.nu/">
+						<span class="font-large">https://regex.alf.nu/</span>
+					</a>
+				</p>
+				<p>O jogo começa simples (a primeira fase o código regex é básicamente <span class="code">"foo"</span>) e a partir da terceira fase já fica realmente complicado (nada que uma pesquisa rápida não resolva).</p>
+
+			</div>
+
+		</section>
+
+		<div class="the-end">
+			<h1>por enquanto é isso, pessoal!</h1>
+			<p>Ainda tenho muita coisa de expressões regulares pra aprender e vou atualizando este post enquanto eu vou aprendendo mais! Se quiser ver o histórico de publicações / versionamento do blog, é só ir no meu <a href="https://github.com/dudusbarros/blog">github</a>!</p>
+		</div>
+
+		<footer>
+			<header>
+				<h2>Referências</h2>
+			</header>
+			<div class="content">
+				<p>[1] - <a href="http://en.wikipedia.org/wiki/Regular_expression">http://en.wikipedia.org/wiki/Regular_expression</a></p>
+			</div>
+		</footer>
+
+	</article>
+
+	<footer class="container">
+		<div class="mark">
+			<span>barros@noibe</span>
+		</div>
+	</footer>
+
+</main>
+
+</body>
+</html>
