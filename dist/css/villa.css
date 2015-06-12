@@ -88,21 +88,21 @@ h1 {
 
 h2 {
     font-size: 1.625em;
-    /* 1.625x body copy size = 26px */
+    /* begin.625x body copy size = 26px */
     line-height: 1.15384615;
     /* 30px / 26px */
 }
 
 h3 {
     font-size: 1.375em;
-    /* 1.375x body copy size = 22px */
+    /* begin.375x body copy size = 22px */
     line-height: 1.13636364;
     /* 25px / 22px */
 }
 
 h4 {
     font-size: 1.125em;
-    /* 1.125x body copy size = 18px */
+    /* begin.125x body copy size = 18px */
     line-height: 1.11111111;
 }
 
@@ -132,7 +132,7 @@ blockquote {
 
     h3 {
         font-size: 1.5em;
-        /* 1.5x body copy size = 24px */
+        /* begin.5x body copy size = 24px */
         line-height: 1.25;
     }
 
@@ -166,7 +166,7 @@ blockquote {
 
     h3 {
         font-size: 1.75em;
-        /* 1.75x body copy size = 28px */
+        /* begin.75x body copy size = 28px */
         line-height: 1.25;
     }
 }
