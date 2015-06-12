@@ -187,13 +187,17 @@ article .the-end:after {
     content: "...";
 }
 
+article .the-end h1,
+article .the-end p {
+    text-align: center;
+}
+
 article .the-end h1 {
     font-weight: 100;
 }
 
-article .the-end h1,
 article .the-end p {
-    text-align: center;
+    margin: 0 1em;
 }
 
 article table {
@@ -221,6 +225,10 @@ main > footer {
     padding: .5em 0;
     text-align: center;
     width: 100%;
+}
+
+main > footer a {
+    color: #000000;
 }
 
 @media screen and (min-width: 48em) {
